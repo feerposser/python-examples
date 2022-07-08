@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+    atletica:
+        image: atletica:0.1
+        restart: unless-stopped
+        container_name: app-atletica
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - .:/opt/exemplo
+        ports:
+            - 80:5000
+        depends_on: 
+            - mongo
+        environment: 
+            DATABASE_NAME: atlecica
+            DATABASE_HOST: mongodb-atletica
+            DATABASE_USER: admin
+            DATABASE_PASSWORD: admin
+        command: python app.py
+    
+    mongo:
+        image: mongo
+        restart: always
+        container_name: mongodb-atletica
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin    #db username
+            MONGO_INITDB_ROOT_PASSWORD: admin    #db password
+        volumes: 
+            - .mongodata:/data/db
+    
+    mongo-express:
+        image: mongo-express
+        restart: always
+        container_name: mongo-express-atletica
+        ports:
+            - 8081:8081
+        environment:
+            ME_CONFIG_MONGODB_SERVER: mongodb-atletica  # mongo service container name
+            ME_CONFIG_MONGODB_ADMINUSERNAME: admin      # db mongo username
+            ME_CONFIG_MONGODB_ADMINPASSWORD: admin      # db mongo passw
+            ME_CONFIG_BASICAUTH_USERNAME: admin         # mongo-express login user
+            ME_CONFIG_BASICAUTH_PASSWORD: admin         # mongo-empress login passw
+        depends_on: 
+            - mongo
+
+# runs on docker-compose up --build -d

@@ -1,0 +1,13 @@
+/env
+./venv
+/.idea
+/.mongodata
+.mongodata
+/__pycache
+__pycache__
+__pycache__/
+*.py[cod]
+*$py.class
+prod.*
+.mysqldata
+mysqldata
