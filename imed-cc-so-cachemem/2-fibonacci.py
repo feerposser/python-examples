@@ -20,9 +20,8 @@ def fibonacci(n):
 
 start = time.time()
 
-for n in range(1, 100000):
-    # print(n, ":", fibonacci(n))
-    fibonacci(n)
+for n in range(1, 10000):
+    print(n, ":", fibonacci(n))
 
 stop = time.time()
 print("time:", stop - start)
