@@ -5,15 +5,15 @@ from pubnub.callbacks import SubscribeCallback
 from pubnub.pnconfiguration import PNConfiguration
 from pubnub.pubnub import PubNub
 
-os.environ["pubsub_uuid"] = "feerposser-pc"
+os.environ["pubsub_uuid"] = "feerposser"
 
 pnconfig = PNConfiguration()
 
-pnconfig.publish_key = "pub-c-ae306e7e-e4ac-4a15-b231-ab9b76c5c5a0"
-pnconfig.subscribe_key = "sub-c-d2a414a2-aba1-11ec-9ae2-de198fffb17e"
+pnconfig.publish_key = "pub-c-afffceda-e456-4e94-a0cc-b6364eed45e9"
+pnconfig.subscribe_key = "sub-c-c0827df5-a7ce-4891-85c1-1777550e00b0"
 pnconfig.uuid = os.environ["pubsub_uuid"]
 
-canal = "imedccso"
+canal = "atitus"
 
 pubnub = PubNub(pnconfig)
 

@@ -57,7 +57,7 @@ def fibonacci(n):
 
 start = time.time()
 
-for n in range(1, 10000):
+for n in range(1, 20):
     print(n, ":", fibonacci(n))
 
 stop = time.time()
